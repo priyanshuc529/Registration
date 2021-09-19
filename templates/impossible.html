@@ -1,0 +1,16 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}REGESTRATION FORM {% endblock %}
+
+{% block styles %}
+{{ super() }}
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <video class="video-container" autoplay muted loop>
+        <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+    </video>
+
+
+{% endblock %}

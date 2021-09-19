@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}REGESTRATION FORM {% endblock %}
+
+{% block styles %}
+{{ super() }}
+<script src="https://kit.fontawesome.com/bfb451d6b3.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    
+    <video class="video-container" autoplay muted loop>
+        <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="normal">
+               {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <p style="color:red;font-size:2rem;">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+    {% endwith %}
+        {% if filled == False %}
+        <i  class="group fas fa-volume-off fa-2x"></i>
+        <h1 class="center">REGISTRATION FORM</h1>
+  {{ wtf.quick_form(form,novalidate = True)}}
+        {% else %}
+        <h1 class="center">Thank you {{name}}</h1>
+        <h5 class="content">Thank you for applying you will get a response from us within 2-3 days</h5>
+        <button id="close">close the window</button>
+    {% endif %}
+    </div>
+  <script src="{{url_for('static',filename='app.js')}}"></script>
+{% endblock %}

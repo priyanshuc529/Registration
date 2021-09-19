@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}table{% endblock %}
+
+{% block content %}
+<table class="table table-dark table-hover">
+    <thead>
+    <tr>
+      <th scope="col" style="font-size:2rem">ID</th>
+      <th scope="col" style="font-size:2rem">NAME</th>
+      <th scope="col" style="font-size:2rem">Pin number</th>
+      <th scope="col" style="font-size:2rem">Phone</th>
+       <th scope="col" style="font-size:2rem">Batch</th>
+        <th scope="col" style="font-size:2rem">Email</th>
+        <th scope="col" style="font-size:2rem">Branch</th>
+        <th scope="col" style="font-size:2rem">Department</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in form %}
+    <tr CLASS="table-dark">
+      <th scope="row" style="font-size:1.5rem">{{data.id}}</th>
+      <td style="font-size:1.5rem">{{data.name}}</td>
+      <td style="font-size:1.5rem"><spa>{{data.pinnumber}}</spa></td>
+      <td style="font-size:1.5rem">{{data.phone}}</td>
+        <td style="font-size:1.5rem">{{data.Batch}}</td>
+        <td style="font-size:1.5rem">{{data.email}}</td>
+        <td style="font-size:1.5rem">{{data.branch}}</td>
+        <td style="font-size:1.5rem">{{data.department}}</td>
+    </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+<a href="{{url_for('logout')}}">LOGOUT</a>
+<a href="{{url_for('download')}}" style="margin:3%">DOWNLOAD</a>
+{% endblock %}
